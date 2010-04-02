@@ -6,6 +6,11 @@ class Account
 
     @username = config[:user_name]
     @password = config[:password]
+    @client = Grackle::Client.new :auth => {
+      :type => :basic,
+      :user_name => @username,
+      :password => @password
+    }
   end
 
   def send message
