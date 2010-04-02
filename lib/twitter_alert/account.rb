@@ -6,16 +6,26 @@ class Account
 
     @username = config[:user_name]
     @password = config[:password]
-    @client = Grackle::Client.new :auth => {
-      :type => :basic,
-      :user_name => @username,
-      :password => @password
-    }
+
+    begin
+      @client = Grackle::Client.new :auth => {
+        :type => :basic,
+        :user_name => @username,
+        :password => @password
+      }
+    rescue Grackle::TwitterError, e
+      #put something here, I'm sure.
+    end
   end
 
   def announce message
     followers.each do |follower|
-      @client.direct_messages.new! :user_id => follower, :text => message.text
+      begin
+        @client.direct_messages.new! :user_id => follower, :text => message.text
+      rescue Grackle::TwitterError, e
+        @failed_announcements ||= []
+        @failed_announcements << follower
+      end
     end
 
     message.mark_sent
