@@ -2,7 +2,7 @@ require 'grackle'
 
 class Account
   def initialize
-    # Load hash from yaml file in default location.
+    # Load hash from yaml file in default location?
 
     @username = config[:user_name]
     @password = config[:password]
