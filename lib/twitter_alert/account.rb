@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'grackle'
 
 class Account
@@ -24,7 +25,7 @@ class Account
   def announce message
     followers.each do |follower|
       begin
-        @client.direct_messages.new! :user_id => follower, :text => message.text
+        @client.direct_messages.new! :screen_name => follower, :text => message.text
       rescue Grackle::TwitterError, e
         @failed_announcements ||= []
         @failed_announcements << follower
