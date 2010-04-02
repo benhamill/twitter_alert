@@ -13,7 +13,7 @@ class Account
     }
   end
 
-  def send message
+  def announce message
     followers.each do |follower|
       @client.direct_messages.new! :user_id => follower, :text => message.text
     end
