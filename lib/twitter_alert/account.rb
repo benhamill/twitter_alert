@@ -8,11 +8,14 @@ class Account
     @password = config[:password]
 
     begin
-      @client = Grackle::Client.new :auth => {
-        :type => :basic,
-        :user_name => @username,
-        :password => @password
-      }
+      @client = Grackle::Client.new(
+        :auth => {
+          :type => :basic,
+          :username => @username,
+          :password => @password
+        },
+        :ssl => true
+      )
     rescue Grackle::TwitterError, e
       #put something here, I'm sure.
     end
