@@ -2,7 +2,7 @@ require 'rubygems'
 require 'grackle'
 
 class Account
-  def initialize
+  def initialize config
     # Load hash from yaml file in default location?
 
     @username = config[:user_name]
@@ -25,7 +25,7 @@ class Account
   def announce message
     followers.each do |follower|
       begin
-        @client.direct_messages.new! :screen_name => follower, :text => message.text
+        @client.direct_messages.new! :user_id => follower, :text => message.text
       rescue Grackle::TwitterError, e
         @failed_announcements ||= []
         @failed_announcements << follower
@@ -36,6 +36,6 @@ class Account
   end
 
   def followers
-    @client.followers.ids :screen_name => @user_name
+    @client.followers.ids? :screen_name => @user_name
   end
 end
