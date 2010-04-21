@@ -19,7 +19,7 @@ module TwitterAlert
       followers.each do |follower|
         begin
           @client.direct_messages.new! :user_id => follower, :text => message.text
-        rescue Grackle::TwitterError, e
+        rescue Grackle::TwitterError => e
           @failed_announcements ||= []
           @failed_announcements << follower
         end

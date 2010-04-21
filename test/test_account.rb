@@ -69,6 +69,23 @@ class TestAccount < Test::Unit::TestCase
     assert_equal [1, 2, 3], value
   end
 
+  def test_announce
+    account = new_account(200, 'DM worked.', {:user_name => 'test_user', :password => 'test_pass'})
+
+    def account.followers
+      [1, 2]
+    end
+
+    message = AlertTester.new 'Test message.', DateTime.now
+
+    account.announce message
+
+    assert_equal(:post, account.client.transport.method)
+    assert_equal('http', account.client.transport.url.scheme)
+    assert_equal('twitter.com', account.client.transport.url.host)
+    assert_equal('/direct_messages/new.json', account.client.transport.url.path)
+  end
+
   private
 
   def new_account(response_status, response_body, account_opts={})
