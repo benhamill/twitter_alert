@@ -12,8 +12,7 @@ module TwitterAlert
             :type => :basic,
             :username => @username,
             :password => @password
-          }#,
-  #       :ssl => true
+          }
         )
       rescue Grackle::TwitterError, e
         #put something here, I'm sure.
