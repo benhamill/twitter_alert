@@ -6,3 +6,7 @@ require 'twitter_alert'
 
 class Test::Unit::TestCase
 end
+
+class AlertTester
+  include TwitterAlert::Alert
+end
