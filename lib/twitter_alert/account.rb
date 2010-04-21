@@ -6,17 +6,13 @@ module TwitterAlert
       @username = config[:user_name]
       @password = config[:password]
 
-      begin
-        @client = Grackle::Client.new(
-          :auth => {
-            :type => :basic,
-            :username => @username,
-            :password => @password
-          }
-        )
-      rescue Grackle::TwitterError, e
-        #put something here, I'm sure.
-      end
+      @client = Grackle::Client.new(
+        :auth => {
+          :type => :basic,
+          :username => @username,
+          :password => @password
+        }
+      )
     end
 
     def announce message
