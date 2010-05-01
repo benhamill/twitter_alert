@@ -29,7 +29,7 @@ module TwitterAlert
     end
 
     def followers
-      @client.followers.ids? :screen_name => @user_name
+      @client.followers.ids?
     end
   end
 end
