@@ -1,10 +1,6 @@
 require 'helper'
 
 class TestAlert < Test::Unit::TestCase
-  class AlertTester
-    include TwitterAlert::Alert
-  end
-
   def setup
     @alert = AlertTester.new 'Test alert.', '01/02/2010'
   end
