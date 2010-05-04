@@ -16,7 +16,7 @@ class TestAccount < Test::Unit::TestCase
 
   def test_announce
     FakeWeb.register_uri :get, 'http://test_user:test_password@twitter.com/followers/ids.json', :body => '[1, 2, 3]'
-    FakeWeb.register_uri :post, 'http://test_user:test_password@twitter.com/direct_messages/new.json', :body => '[1, 2, 3]'
+    FakeWeb.register_uri :post, 'http://test_user:test_password@twitter.com/direct_messages/new.json', :body => 'DM sent.'
 
     message = AlertTester.new 'Test message.', DateTime.now
 
