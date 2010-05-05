@@ -23,7 +23,7 @@ module TwitterAlert
         begin
           @client.direct_messages.new! :user_id => follower, :text => message.text
         rescue Grackle::TwitterError => e
-          @failed_announcements << follower
+          @failed_announcements << { :follower_id => follower, :error_text => e.message }
         end
       end
 
