@@ -24,8 +24,10 @@ class TestAccount < Test::Unit::TestCase
     message = AlertTester.new 'Test message.', DateTime.now
 
     assert(@account.announce(message), "Announce returned false.")
-    assert(message.sent?, "Message not marked sent.")
     assert_equal([], @account.failed_announcements)
+
+    # Should this even be here? I'm thinking no. Should be in TestAlert.
+    assert(message.sent?, "Message not marked sent.")
   end
 
   def test_announce_failure
