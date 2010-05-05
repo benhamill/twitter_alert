@@ -3,8 +3,8 @@ module TwitterAlert
     attr_reader :text, :date, :failed_announcements
 
     def initialize text, date
-      self.text = text.to_s
-      self.date = DateTime.parse(date.to_s)
+      @text = text.to_s
+      @date = DateTime.parse(date.to_s)
     end
 
     def sent?
