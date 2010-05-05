@@ -1,6 +1,6 @@
 module TwitterAlert
   module Alert
-    attr_accessor :text, :date
+    attr_reader :text, :date, :failed_announcements
 
     def initialize text, date
       self.text = text.to_s
@@ -12,7 +12,11 @@ module TwitterAlert
     end
 
     def mark_sent
-      @sent = true
+      @sent = @failed_announcements.empty?
+    end
+
+    def add_failed_announcement follower_id, error_text
+      @failed_announcement << { :follower_id => follower_id, :error_text => error_text }
     end
   end
 end
