@@ -45,8 +45,6 @@ class TestAccount < Test::Unit::TestCase
        }]
 
     message = AlertTester.new 'Test message.', DateTime.now
-    @account.announce message
-
-    assert_equal([{:follower_id => 2, :error_text => 'post http://twitter.com/direct_messages/new.json => 404: {"request":"/direct_messages/new.json","error":"Not found"}'}], @account.failed_announcements)
+    assert(!@account.announce(message), "Announce returned true for failure.")
   end
 end
