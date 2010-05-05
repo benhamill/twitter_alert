@@ -5,6 +5,7 @@ module TwitterAlert
     def initialize text, date
       @text = text.to_s
       @date = DateTime.parse(date.to_s)
+      @failed_announcements = []
     end
 
     def sent?
@@ -16,7 +17,7 @@ module TwitterAlert
     end
 
     def add_failed_announcement follower_id, error_text
-      @failed_announcement << { :follower_id => follower_id, :error_text => error_text }
+      @failed_announcements << { :follower_id => follower_id, :error_text => error_text }
     end
   end
 end
