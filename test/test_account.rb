@@ -23,11 +23,8 @@ class TestAccount < Test::Unit::TestCase
 
     message = AlertTester.new 'Test message.', DateTime.now
 
-    assert(@account.announce(message), "Announce returned false.")
-    assert_equal([], @account.failed_announcements)
-
-    # Should this even be here? I'm thinking no. Should be in TestAlert.
-    assert(message.sent?, "Message not marked sent.")
+    assert(@account.announce(message), "Successful announcements should return true.")
+    assert(message.sent?, "Message from successful announcement should be marked sent.")
   end
 
   def test_announce_failure
@@ -45,7 +42,9 @@ class TestAccount < Test::Unit::TestCase
        }]
 
     message = AlertTester.new 'Test message.', DateTime.now
-    assert(!@account.announce(message), "Announce returned true for failure.")
-    assert_equal([{:follower_id => 2, :error_text => 'post http://twitter.com/direct_messages/new.json => 404: {"request":"/direct_messages/new.json","error":"Not found"}'}], @alert.failed_announcements)
+
+    assert(!@account.announce(message), "Failed announcement should return false.")
+    assert_equal([{:follower_id => 2, :error_text => 'post http://twitter.com/direct_messages/new.json => 404: {"request":"/direct_messages/new.json","error":"Not found"}'}], message.failed_announcements)
+    assert(!message.sent?, "Message from failed announcement should not be marked sent.")
   end
 end
