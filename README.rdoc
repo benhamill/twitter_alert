@@ -1,9 +1,72 @@
 = twitter_alert
 
-Description goes here.
+The problem that twitter_alert attempts to solve is the programmatic sending of DMs to all the followers of a given Twitter account. It is a simple gem that provides one Class and one Module. The class is TwitterAlert::Account and represents the Twitter account you want to make announcements from. The Module is TwitterAnnounce::Alert and should be mixed in to a class that you want to represent the messages themselves.
+
+DISCLAIMER: Please, please, please don't use this gem to spam people. If you do, I hope you get unfollowed or blocked. Seriously. Get permission. Make sure your followers know that by following your account they're signing up to get DMs from a machine.
+
+== Installing
+
+To install, simple:
+
+  sudo gem install twitter_alert
+
+Note: This gem depends on Grackle for Twitter access.
+
+== TwitterAlert::Account
+
+=== #initialize(options)
+
+Accepted options are :user_name and :password.
+
+=== #followers()
+
+This returns an array of the user ids for all of the account's followers.
+
+=== #announce(message)
+
+This will attempt to send a DM to each follower of the account in turn with the text from the message. The message should be an object that has TwitterAlert::Alert mixed in. It returns true if things went well and false if there were any failures.
+
+==TwitterAlert::Alert
+
+There are reader methods for text, date and failed_announcements.
+
+=== #initialize(text, date)
+
+The text of the announcement and the date it should be announced.
+
+=== #add_failed_announcement(follower_id, error_text)
+
+This will add a hash to the failed_announcements array with the follower id and the supplied error_text (which should explain why it failed).
+
+=== #sent?
+
+Whether this message has been successfully sent or not.
+
+=== #mark_sent
+
+Unless there are failed_announcements, this will mark the message as sent.
+
+== Getting Started
+
+The most basic case is pretty simple and would look something like this:
+
+  require 'twitter_alert'
+
+  account = TwitterAlert::Account.new :user_name => 'benhamill', :password => 'thisisnotmyrealpassword'
+
+  class Alert
+    include TiwtterAlert::Alert
+  end
+
+  alert = Alert.new 'Very important message.', DateTime.now
+
+  account.announce alert
+
+In a real program, I'd expect that your Alert class would actually be somewhat more complicated and probably inherit from ActiveRecord or something. The way I intend to use this is to set up a cron job to pull messages out of the DB that are marked for a given day and send them.
 
 == Note on Patches/Pull Requests
  
+This is the standard Jeweler procedure.
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
