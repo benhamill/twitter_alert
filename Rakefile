@@ -5,12 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "twitter_alert"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "git-commits@benhamill.com"
+    gem.summary = %Q{Send scheduled Direct Messages to all Twitter Followers.}
+    gem.description = %Q{Create messages, assign a time, then DM all Followers of a Twitter account with those messages as the assigned time.}
+    gem.email = "twitteralert@benhamill.com"
     gem.homepage = "http://github.com/BenHamill/twitter_alert"
     gem.authors = ["Ben Hamill"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "fakeweb", ">= 1.2.8"
+    gem.add_dependency 'grackle', '>= 0.1.9'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
