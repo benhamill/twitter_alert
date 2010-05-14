@@ -1,5 +1,5 @@
 = twitter_alert
-The problem that twitter_alert attempts to solve is the programmatic sending of DMs to all the followers of a given Twitter account. It is a simple gem that provides one Class and one Module. The class is TwitterAlert::Account and represents the Twitter account you want to make announcements from. The Module is TwitterAnnounce::Alert and should be mixed in to a class that you want to represent the messages themselves.
+The problem that twitter_alert attempts to solve is the programmatic sending of DMs to all the followers of a given Twitter account. It is a simple gem that provides one Class and one Module. The class is TwitterAlert::Account and represents the Twitter account you want to make announcements from. The Module is TwitterAlert::Alert and should be mixed in to a class that you want to represent the messages themselves.
 
 DISCLAIMER: Please, please, please don't use this gem to spam people. If you do, I hope you get unfollowed or blocked. Seriously. Get permission. Make sure your followers know that by following your account they're signing up to get DMs from a machine.
 
