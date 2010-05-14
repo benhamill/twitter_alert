@@ -1,5 +1,9 @@
 module TwitterAlert
+
+  # This represents the Twitter account you'll use to send DMs from.
   class Account
+
+    # Config is a hash that needs :user_name and :password keys.
     def initialize config
       # Load hash from yaml file in default location?
 
@@ -15,6 +19,7 @@ module TwitterAlert
       )
     end
 
+    # Sends the text of message to all of the account's followers. Message's class should include the TwitterAlert::Alert Module.
     def announce message
       followers.each do |follower|
         begin
@@ -27,6 +32,7 @@ module TwitterAlert
       message.mark_sent
     end
 
+    # Returns an array of ids of all the followers of the account.
     def followers
       @client.followers.ids?
     end
