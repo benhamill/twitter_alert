@@ -10,32 +10,6 @@ To install, simple:
 
 Note: This gem depends on Grackle for Twitter access.
 
-== TwitterAlert::Account
-
-=== #initialize(options)
-Accepted options are :user_name and :password.
-
-=== #followers()
-This returns an array of the user ids for all of the account's followers.
-
-=== #announce(message)
-This will attempt to send a DM to each follower of the account in turn with the text from the message. The message should be an object that has TwitterAlert::Alert mixed in. It returns true if things went well and false if there were any failures.
-
-==TwitterAlert::Alert
-There are reader methods for text, date and failed_announcements.
-
-=== #initialize(text, date)
-The text of the announcement and the date it should be announced.
-
-=== #add_failed_announcement(follower_id, error_text)
-This will add a hash to the failed_announcements array with the follower id and the supplied error_text (which should explain why it failed).
-
-=== #sent?
-Whether this message has been successfully sent or not.
-
-=== #mark_sent
-Unless there are failed_announcements, this will mark the message as sent.
-
 == Getting Started
 The most basic case is pretty simple and would look something like this:
 
