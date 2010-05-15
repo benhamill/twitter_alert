@@ -20,6 +20,8 @@ module TwitterAlert
     end
 
     # Sends the text of message to all of the account's followers. Message's class should include the TwitterAlert::Alert Module.
+    #
+    # Returns true if things went well and false if any DMs failed.
     def announce message
       followers.each do |follower|
         begin
