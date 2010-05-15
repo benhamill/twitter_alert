@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: TwitterAlert::Alert</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/twitter_alert/alert_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/twitter_alert/alert.rb">lib/twitter_alert/alert.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-add_failed_announcement">#add_failed_announcement</a></li>
+					
+					<li><a href="#method-i-mark_sent">#mark_sent</a></li>
+					
+					<li><a href="#method-i-sent%3F">#sent?</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+				
+					<li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../TwitterAlert.html">TwitterAlert</a></li>
+				
+					<li><a href="../TwitterAlert/Account.html">TwitterAlert::Account</a></li>
+				
+					<li><a href="../TwitterAlert/Alert.html">TwitterAlert::Alert</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">TwitterAlert::Alert</h1>
+
+		<div id="description">
+			<p>
+Mix this in to a class you want to represent the messages you&#8217;ll DM
+out.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+		<div id="attribute-method-details" class="method-section section">
+			<h3 class="section-header">Attributes</h3>
+
+			
+			<div id="text-attribute-method" class="method-detail">
+				<a name="text"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">text</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The text to be DMed out.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="date-attribute-method" class="method-detail">
+				<a name="date"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">date</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+The date it should be DMed out.
+</p>
+				
+				</div>
+			</div>
+			
+			<div id="failed-announcements-attribute-method" class="method-detail">
+				<a name="failed_announcements"></a>
+				
+				<div class="method-heading attribute-method-heading">
+					<span class="method-name">failed_announcements</span><span
+						class="attribute-access-type">[R]</span>
+				</div>
+
+				<div class="method-description">
+				
+				<p>
+An array of hashes containing the id and error text of any DMs that
+didn&#8217;t work.
+</p>
+				
+				</div>
+			</div>
+			
+		</div>
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(text, date)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Text will have to_s called on it. Date will have # and then fed to
+DateTime.parse
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/twitter_alert/alert.rb, line 16</span>
+16:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">text</span>, <span class="ruby-identifier">date</span>
+17:       <span class="ruby-ivar">@text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
+18:       <span class="ruby-ivar">@date</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_s</span>)
+19:       <span class="ruby-ivar">@failed_announcements</span> = []
+20:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="add-failed-announcement-method" class="method-detail ">
+				<a name="method-i-add_failed_announcement"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">add_failed_announcement</span><span
+						class="method-args">(follower_id, error_text)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Stores a failed announcement so that you can see who and why the failure
+occured.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="add-failed-announcement-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/twitter_alert/alert.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_failed_announcement</span> <span class="ruby-identifier">follower_id</span>, <span class="ruby-identifier">error_text</span>
+34:       <span class="ruby-ivar">@failed_announcements</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-value">:follower_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">follower_id</span>, <span class="ruby-value">:error_text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error_text</span> }
+35:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="mark-sent-method" class="method-detail ">
+				<a name="method-i-mark_sent"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">mark_sent</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Marks this message as sent unless there are stored failed announcements.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="mark-sent-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/twitter_alert/alert.rb, line 28</span>
+28:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mark_sent</span>
+29:       <span class="ruby-ivar">@sent</span> = <span class="ruby-ivar">@failed_announcements</span>.<span class="ruby-identifier">empty?</span>
+30:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="sent--method" class="method-detail ">
+				<a name="method-i-sent%3F"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sent?</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns boolean based on whether this messages was successfully sent to all
+followers or not.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="sent--source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/twitter_alert/alert.rb, line 23</span>
+23:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sent?</span>
+24:       <span class="ruby-ivar">@sent</span>
+25:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

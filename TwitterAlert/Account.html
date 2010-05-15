@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: TwitterAlert::Account</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/twitter_alert/account_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/twitter_alert/account.rb">lib/twitter_alert/account.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-announce">#announce</a></li>
+					
+					<li><a href="#method-i-followers">#followers</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../LICENSE.html">LICENSE</a></li>
+				
+					<li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../TwitterAlert.html">TwitterAlert</a></li>
+				
+					<li><a href="../TwitterAlert/Account.html">TwitterAlert::Account</a></li>
+				
+					<li><a href="../TwitterAlert/Alert.html">TwitterAlert::Alert</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">TwitterAlert::Account</h1>
+
+		<div id="description">
+			<p>
+This represents the Twitter account you&#8217;ll use to send DMs from.
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(config)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Config is a hash that needs :user_name and :password keys.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/twitter_alert/account.rb, line 7</span>
+ 7:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">config</span>
+ 8:       <span class="ruby-comment cmt"># Load hash from yaml file in default location?</span>
+ 9: 
+10:       <span class="ruby-ivar">@username</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value">:user_name</span>]
+11:       <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value">:password</span>]
+12: 
+13:       <span class="ruby-ivar">@client</span> = <span class="ruby-constant">Grackle</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>(
+14:         <span class="ruby-value">:auth</span> =<span class="ruby-operator">&gt;</span> {
+15:           <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:basic</span>,
+16:           <span class="ruby-value">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@username</span>,
+17:           <span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@password</span>
+18:         }
+19:       )
+20:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="announce-method" class="method-detail ">
+				<a name="method-i-announce"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">announce</span><span
+						class="method-args">(message)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Sends the text of message to all of the account&#8217;s followers.
+Message&#8217;s class should include the <a
+href="Alert.html">TwitterAlert::Alert</a> Module.
+</p>
+<p>
+Returns true if things went well and false if any DMs failed.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="announce-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/twitter_alert/account.rb, line 25</span>
+25:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">announce</span> <span class="ruby-identifier">message</span>
+26:       <span class="ruby-identifier">followers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">follower</span><span class="ruby-operator">|</span>
+27:         <span class="ruby-keyword kw">begin</span>
+28:           <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">direct_messages</span>.<span class="ruby-identifier">new!</span> <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">follower</span>, <span class="ruby-value">:text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">text</span>
+29:         <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Grackle</span><span class="ruby-operator">::</span><span class="ruby-constant">TwitterError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+30:           <span class="ruby-identifier">message</span>.<span class="ruby-identifier">add_failed_announcement</span> <span class="ruby-identifier">follower</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+31:         <span class="ruby-keyword kw">end</span>
+32:       <span class="ruby-keyword kw">end</span>
+33: 
+34:       <span class="ruby-identifier">message</span>.<span class="ruby-identifier">mark_sent</span>
+35:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="followers-method" class="method-detail ">
+				<a name="method-i-followers"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">followers</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Returns an array of ids of all the followers of the account.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="followers-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/twitter_alert/account.rb, line 38</span>
+38:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">followers</span>
+39:       <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">followers</span>.<span class="ruby-identifier">ids?</span>
+40:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
